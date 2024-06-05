@@ -6,24 +6,31 @@ public class Sudoku {
 
     public Sudoku() {
         char sudo[][] = {
-            {' ', 'F', ' ', 'A', ' ', 'D', ' ', 'E', ' '},
-            {' ', ' ', 'H', 'C', ' ', 'E', 'F', ' ', ' '},
-            {'B', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'A'},
-            {'H', ' ', ' ', 'D', ' ', 'G', ' ', ' ', 'F'},
-            {' ', ' ', 'F', ' ', ' ', ' ', 'C', ' ', ' '},
-            {'G', ' ', ' ', 'I', ' ', 'A', ' ', ' ', 'D'},
-            {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'B'},
-            {' ', ' ', 'G', 'B', ' ', 'F', 'I', ' ', ' '},
-            {' ', 'D', ' ', 'E', ' ', 'H', ' ', 'G', ' '}
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
         };
         sudoku = sudo;
     }
-
+    
+    
+    // Método booleano para resolver el sudoku una vez cargadas las letras
     public boolean resolverSudoku() {
+        // Ciclo para recoger las filas
         for (int i = 0; i < sudoku.length; i++) {
+            // Ciclo para recorrer las columnas
             for (int j = 0; j < sudoku[0].length; j++) {
+                // Condición para incluir una posible letra en el campo vacío
                 if (sudoku[i][j] == ' ') {
+                    // Ciclo para recorrer las letras posibles a ingresar
                     for (char letra = 'A'; letra <= 'I'; letra++) {
+                        // Condición para validar que la letra no se repita en la fila, columna y cuadrado y así se pueda ingresar la letra
                         if (validarFila(i, letra) && validarColumna(j, letra) && validarCuadrado(i, j, letra)) {
                             sudoku[i][j] = letra;
                             
