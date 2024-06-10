@@ -49,7 +49,7 @@ public class Sudoku {
         return true;
     }
 
-    public boolean validarCuadrado(int i, int j, int letra) {
+    public boolean validarCuadrado(int i, int j, char letra) {
         int posI = cuadradoActual(i);
         int posJ = cuadradoActual(j);
 
