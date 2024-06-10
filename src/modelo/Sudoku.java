@@ -48,18 +48,24 @@ public class Sudoku {
         }
         return true;
     }
-
-    public boolean validarCuadrado(int i, int j, int letra) {
+    // Método para validar el cuadrado de 3x3
+    public boolean validarCuadrado(int i, int j, char letra) {
+        // Obtiene la posición inicial de la fila del cuadrado
         int posI = cuadradoActual(i);
+        // Obtiene la posición inicial de la columna del cuadrado
         int posJ = cuadradoActual(j);
-
+        //Ciclo que recorre las filas del cuadrado actual
         for (int k = posI - 3; k < posI; k++) {
+            //Ciclo que recorre las columnas del cuadrado actual
             for (int l = posJ - 3; l < posJ; l++) {
+                // Condición para verificar si la letra ya existe en el cuadrado
                 if (sudoku[k][l] == letra) {
+                    // Retorna falso si la letra ya existe en el cuadrado
                     return false;
                 }
             }
         }
+        // Retorna verdadero si la letra no existe en el cuadrado
         return true;
     }
 
